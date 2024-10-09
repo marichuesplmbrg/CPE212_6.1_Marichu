@@ -1,0 +1,11 @@
+- name: install updates (CentOs)
+  dnf: 
+    name: "*"
+    state: latest
+  when: ansible_distribution == "CentOS"
+
+- name: install updates (Ubuntu)
+  apt:
+    upgrade: dist
+    update_cache: yes
+  when: ansible_distribution == "Ubuntu"
